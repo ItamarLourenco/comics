@@ -4,7 +4,7 @@ import com.example.comics.CoroutinesTestRule
 import com.example.comics.presenter.IPresenter
 import com.example.comics.application.domain.model.DataModel
 import com.example.comics.application.domain.model.ItemModel
-import com.example.comics.application.api.Repository
+import com.example.comics.application.api.ComicsRepository
 import io.mockk.called
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -28,7 +28,7 @@ class InteractorTest {
     private lateinit var interactor: Interactor
 
     private val iPresenter: IPresenter = mockk(relaxed = true)
-    private val repository: Repository = mockk(relaxed = true)
+    private val repository: ComicsRepository = mockk(relaxed = true)
 
     @Before
     fun setup() {

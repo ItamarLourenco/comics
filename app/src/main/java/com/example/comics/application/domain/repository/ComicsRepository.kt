@@ -9,7 +9,7 @@ import retrofit2.await
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-class ComicsRepository @Inject constructor() {
+class ComicsRepository(){
     suspend fun getComics(): Response<ItemModel> {
         return Retrofit.Builder()
                 .baseUrl("https://gateway.marvel.com/v1/public/")

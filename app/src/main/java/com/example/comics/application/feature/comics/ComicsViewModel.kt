@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.comics.R
 import com.example.comics.application.domain.model.ResultModel
 import com.example.comics.application.domain.repository.ComicsRepository
+import com.example.comics.application.usecase.GetComicsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ComicsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val repository: ComicsRepository
+    private val repository: GetComicsListUseCase
 ) : ViewModel() {
 
     val comicsState = MutableStateFlow<List<ResultModel>>(emptyList())
@@ -32,7 +33,7 @@ class ComicsViewModel @Inject constructor(
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                val comics = repository.getComics()
+                val comics = repository.execute()
                 _isLoading.value = false
                 when {
                     comics.isSuccessful -> {

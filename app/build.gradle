@@ -9,6 +9,8 @@ android {
     compileSdk 34
 
     defaultConfig {
+
+
         applicationId "com.example.comics"
         namespace 'com.example.comics'
         minSdk 21
