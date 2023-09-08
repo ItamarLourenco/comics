@@ -1,4 +1,4 @@
-package com.example.comics.application.config
+package com.example.comics.application.api.config
 
 object Config {
     object Api{

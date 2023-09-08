@@ -1,12 +1,10 @@
 package com.example.comics.application.feature.comics
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.comics.R
 import com.example.comics.application.domain.model.ResultModel
-import com.example.comics.application.domain.repository.ComicsRepository
 import com.example.comics.application.usecase.GetComicsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -18,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ComicsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val repository: GetComicsListUseCase
+    private val getComicsListUseCase: GetComicsListUseCase
 ) : ViewModel() {
 
     val comicsState = MutableStateFlow<List<ResultModel>>(emptyList())
@@ -33,11 +31,11 @@ class ComicsViewModel @Inject constructor(
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                val comics = repository.execute()
+                val comics = getComicsListUseCase.execute()
                 _isLoading.value = false
                 when {
                     comics.isSuccessful -> {
-                        comics.body()?.data?.results?.also { comicsState.emit(it) }
+                        comics.body()?.data?.results?.also { comicsState.emit(handleModel(it)) }
                     }
                     else -> {
                         handleNetworkError()
@@ -46,8 +44,13 @@ class ComicsViewModel @Inject constructor(
             } catch (e: Exception) {
                 _isLoading.value = false
                 handleNetworkError()
-                Log.e("ComicsViewModel", "Error fetching data", e)
             }
+        }
+    }
+
+    private suspend fun handleModel(list: List<ResultModel>): List<ResultModel> {
+        return list.map{
+            it.copy(image = "${it.thumbnail.path}.${it.thumbnail.extension}",)
         }
     }
 

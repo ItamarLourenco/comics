@@ -39,7 +39,7 @@ fun ComicsDescriptionScreen(
                     .padding(16.dp)
             ) {
                 AsyncImage(
-                    model = "${item.thumbnail.path}.${item.thumbnail.extension}",
+                    model = item.image,
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
