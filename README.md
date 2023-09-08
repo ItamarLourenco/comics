@@ -5,13 +5,14 @@ Este README fornece informações essenciais sobre o desafio.
 ### Dependencias ###
 
 * Dependências do lifecycle para acesso contínuo às ViewModels usando Flow e collectAsState em vez de LiveData no Compose.
-* dependências de retrofit
+* Utilizei retrofit
 * Utilizei Mockito para testes unitários.
 * Utilizei Hilt para realizar injeção de dependênci
 
 ## Funcionalidades
 
 * (x) Testes unitários;
+* (x) Jetpack Compose;
 * (x) Arquitetura o MVVM + clean architecture;
 * (x) Injeção de Dependência: Hilt
 * (x) Foi utilizado o Flow com o collectAsState e não LiveData;
