@@ -4,7 +4,7 @@ import com.example.comics.CoroutinesTestRule
 import com.example.comics.presenter.IPresenter
 import com.example.comics.application.domain.model.DataModel
 import com.example.comics.application.domain.model.ItemModel
-import com.example.comics.application.data.api.Repository
+import com.example.comics.application.api.Repository
 import io.mockk.called
 import io.mockk.coEvery
 import io.mockk.coVerify
