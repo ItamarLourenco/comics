@@ -1,7 +1,7 @@
 package com.example.comics.interactor
 
 import com.example.comics.presenter.IPresenter
-import com.example.comics.repository.Repository
+import com.example.comics.application.data.api.Repository
 import com.example.comics.util.safeRunDispatcher
 import com.example.comics.util.Result.Success
 import com.example.comics.util.Result.Failure

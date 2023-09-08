@@ -1,6 +1,6 @@
 package com.example.comics.presenter
 
-import com.example.comics.repository.ItemModel
+import com.example.comics.application.domain.model.ItemModel
 import com.example.comics.view.IView
 import com.example.comics.view.ItemVO
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Comics</string>
+    <string name="item_not_found">Item não encontrado, por favor tente novamente.</string>
 </resources>

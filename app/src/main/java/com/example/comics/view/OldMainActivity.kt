@@ -10,7 +10,7 @@ import com.example.comics.interactor.Interactor
 import com.example.comics.presenter.Presenter
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity(), IView {
+class OldMainActivity : AppCompatActivity(), IView {
 
     private val interactor: Interactor = Interactor(Presenter(this))
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), IView {
             this?.errorTV?.visibility = View.GONE
             this?.listItem?.visibility = View.VISIBLE
             this?.listItem?.adapter = Adapter(list)
-            this?.listItem?.layoutManager = LinearLayoutManager(this@MainActivity)
+            this?.listItem?.layoutManager = LinearLayoutManager(this@OldMainActivity)
             this?.swipeRefresh?.isRefreshing = false
         }
     }
